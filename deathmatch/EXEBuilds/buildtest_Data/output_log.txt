@@ -1,0 +1,43 @@
+Initialize engine version: 5.5.4p4 (e92bef0ab5a4)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   23.21.13.8813
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.018 seconds
+Platform assembly: C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\GeaRTHiRD3\Desktop\KBS\deathmatch\EXEBuilds\buildtest_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.935348 ms
+mm start
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 87c -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.619105 ms
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 2188.
+Total: 1.047110 ms (FindLiveObjects: 0.116735 ms CreateObjectMapping: 0.038911 ms MarkObjects: 0.526627 ms  DeleteObjects: 0.363957 ms)
+
+found options
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
