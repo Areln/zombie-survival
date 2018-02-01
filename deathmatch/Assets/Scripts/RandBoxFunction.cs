@@ -52,13 +52,32 @@ public class RandBoxFunction : MonoBehaviour {
         {
             Destroy(displayWep);
         }
-        x = Random.Range(0, Weapons.Count);
+        x = genNum();
         displayWep = (GameObject)Instantiate(Weapons[x], displayPos.transform);
         displayWep.GetComponent<BoxCollider>().enabled = false;
         displayWep.GetComponent<Rigidbody>().useGravity = false;
         displayWep.transform.localPosition = Vector3.zero;
         displayWep.transform.localRotation = Quaternion.Euler(0, 0, 0);
         displayWep.transform.localScale = new Vector3(10, 10, 10);
+    }
+    int genNum()
+    {
+        int y = Random.Range(0, Weapons.Count);
+        if (y != x)
+        {
+            return y;
+        }
+        else
+        {
+            if (x == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return x - 1;
+            }
+        }
     }
     void giveWep()
     {
