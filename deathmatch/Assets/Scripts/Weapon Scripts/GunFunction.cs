@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 public class GunFunction : MonoBehaviour
 {
+    public string GunName;
     public bool active;
     public bool automatic;
     public int maxClipSize;
+    public int ammoReserve;
     public int currentClipSize;
     public double fireRate;
     double currentFireRate;
@@ -49,10 +51,10 @@ public class GunFunction : MonoBehaviour
 	void Start () {
         guif = GameObject.FindGameObjectWithTag("GUIFunction").GetComponent<GUIFunction>();
         lm = ~(1 << 8);
-        currentClipSize = maxClipSize;
         rb = GetComponent<Rigidbody>();
         //sets the actual max accuracy
         _maxSpreadFactor = _maxSpreadFactor - _minSpreadFactor;
+        setUp();
         //debug
         if (multiMesh) {
             foreach (Transform child in gameObject.transform)
@@ -60,6 +62,8 @@ public class GunFunction : MonoBehaviour
                 meshes.Add(child.gameObject);
             }
         }
+        ammoReserve = maxClipSize * 3;
+        currentClipSize = maxClipSize;
     }
 	
 	// Update is called once per frame
@@ -91,7 +95,27 @@ public class GunFunction : MonoBehaviour
                 if (currentReloadSpeed <= 0)
                 {
                     reload = false;
-                    currentClipSize = maxClipSize;
+                    
+                    if (ammoReserve >= maxClipSize)
+                    {
+                        ammoReserve -= maxClipSize - currentClipSize;
+                        //enough ammo in reserve to reload a full clip
+                        currentClipSize = maxClipSize;
+                    }
+                    if (ammoReserve < maxClipSize)
+                    {
+                        int ammoneeded = maxClipSize - currentClipSize;
+                        if (ammoneeded >= ammoReserve)
+                        {
+                            currentClipSize += ammoReserve;
+                            ammoReserve = 0;
+                        }
+                        if (ammoneeded < ammoReserve)
+                        {
+                            currentClipSize += ammoneeded;
+                            ammoReserve -= ammoneeded;
+                        }
+                    }
                 }
             }
         }
@@ -151,6 +175,13 @@ public class GunFunction : MonoBehaviour
             }
             isADS = !isADS;
         }
+    }
+    public void setUp()
+    {
+        Debug.Log("setup");
+        ammoReserve = maxClipSize * 3;
+        currentClipSize = maxClipSize;
+
     }
     //[Client]
     public void fire(Camera Cam)
@@ -238,10 +269,12 @@ public class GunFunction : MonoBehaviour
     }
     public void reloadGun()
     {
-        if (!reload && currentClipSize <= (maxClipSize-1)) {
+        //!!MAKES SURE ITS LOGICALLY POSSIBLE TO RELOAD!!conditions: not already reloading, ccs is less than mcs, has ammo in reserve
+        if (!reload && currentClipSize <= (maxClipSize-1) && ammoReserve > 0) {
             currentReloadSpeed = reloadSpeed;
             reload = true;
             guif.reload(this);
+            //starts reload timer in update()
         }
     }
     public void cancelReload() {

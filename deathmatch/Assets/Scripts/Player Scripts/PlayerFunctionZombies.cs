@@ -96,7 +96,7 @@ public class PlayerFunctionZombies : MonoBehaviour
             autoSelectWep();
         }
         //updates GUI
-        GUIFunction.setHud(currethealth, gf.currentClipSize, gf.maxClipSize, money, gf._realSpreadFactor);
+        GUIFunction.setHud(currethealth, gf.currentClipSize, gf.ammoReserve, money, gf._realSpreadFactor);
         //Raycastssssss
         RaycastHit hit;
         Ray ray = new Ray(Cam.transform.position, Cam.transform.forward);
@@ -294,6 +294,15 @@ public class PlayerFunctionZombies : MonoBehaviour
         //if u are replacing a wep
         if (Weapons[gunobject.GetComponent<GunFunction>().position] != null)
         {
+            // if the player is trying to pick up the same weapon, its ammo is added instead
+            if (Weapons[gunobject.GetComponent<GunFunction>().position].GetComponent<GunFunction>().GunName == gunobject.GetComponent<GunFunction>().GunName)
+            {
+                Debug.Log("same name: " + gunobject.GetComponent<GunFunction>().ammoReserve);
+                gunobject.GetComponent<GunFunction>().setUp();
+                Weapons[gunobject.GetComponent<GunFunction>().position].GetComponent<GunFunction>().ammoReserve += gunobject.GetComponent<GunFunction>().ammoReserve + gunobject.GetComponent<GunFunction>().currentClipSize;
+                Destroy(gunobject);
+                return;
+            }
             if (currentWep.GetComponent<GunFunction>().reload)
             {
                 //Debug.Log("Reload Canceled");
