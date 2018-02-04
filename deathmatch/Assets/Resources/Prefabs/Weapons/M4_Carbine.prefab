@@ -232,9 +232,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f30e047f42428f4485eb030918fa45e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GunName: m4
   active: 0
   automatic: 0
   maxClipSize: 30
+  ammoReserve: 0
   currentClipSize: 30
   fireRate: 0.15
   reloadSpeed: 2
