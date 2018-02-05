@@ -43,7 +43,7 @@ public class MainMenuFunction : MonoBehaviour
     public void startZombies()
     {
         //single player zombies
-        sf.fadeTo("Zombies");
+        sf.fadeTo("City");
     }
     public void RefreshList()
     {
